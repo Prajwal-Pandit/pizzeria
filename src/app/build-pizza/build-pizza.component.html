@@ -1,0 +1,24 @@
+<div class="container">
+    <p class="font-weight-light text-center">Pizzeria now gives you option to build your own pizza. Customize your pizza by choosing ingredients from the list below</p>
+    <div class="row no-gutter justify-content-center" *ngFor="let i of ingredients">
+        <div class="col-2 border">
+            <img src="{{i.image}}" alt="{{i.tname}}" width="55" height="50">
+        </div>
+        <div class="col-2 fw-bold text-normal border d-flex justify-content-around py-2">
+            <span>{{i.tname}}</span> <span>{{i.price | currency:"INR"}}</span>
+        </div>
+        <div class="col-1 border">
+            <div class="form-check py-3">
+                <input class="form-check-input" type="checkbox" id="add" (change)="toggle($event); total(i)">
+                <label class="form-check-label text-warning" for="add" >Add</label>
+            </div>
+        </div>
+    </div>
+    <div class="fw-bold fs-6 text-primary" style="margin-left: 330px;">
+        Total Cost :  {{price}}
+    </div>
+    <div class="text-center">
+        <button routerLink="/cart" class="btn bg-warning text-white m-3 shadow" >Build Your Pizza</button>
+    </div>
+</div>
+<footer class="sticky-bottom bg-light text-warning text-center p-2">Copyright @2022 by Pizzeria. All rights are reserved</footer>

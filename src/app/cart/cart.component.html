@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="row px-4 py-4 g-5" *ngIf="pizza.length">
+        <div class="col-8">
+            <div class="row py-1" *ngFor="let p of pizza">
+                <div class="cols shadow d-flex justify-content-between rounded mb-2">
+                    <img src="{{p.image}}" alt="{{p.name}}" width="65" height="60" />
+                    <div class="m-4 fw-bold">
+                        {{p.name}}
+                        <img class="shadow"src="{{vImg}}" width="15" height="15" *ngIf="p.type=='veg'" />
+                        <img class="shadow" src="{{nvImg}}" width="15" height="15" *ngIf="p.type=='nonveg'" />
+                    </div>
+                    <div class="m-4 h6">
+                        {{p.price | currency:"INR"}}
+                    </div>
+                    <div>
+                        <button class="btn mt-3 fs-5 btn-sm text-danger" (click)="delete(p.id)"><i class="fa fa-trash-o"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-3 shadow rounded py-2">
+            <h5>Pizza(s)</h5>
+            <div class="d-flex justify-content-around" *ngFor="let p of pizza">
+                <h6>{{p.name}}</h6>
+                <h6>{{p.price | currency:"INR"}}</h6>
+            </div>
+            <h5 *ngIf="ingredients.length>=1">Ingredients</h5>
+            <div class="d-flex justify-content-around" *ngFor="let i of ingredients">
+                <h6>{{i.tname}}</h6>
+                <h6>{{i.price | currency:"INR"}}</h6>
+            </div>
+            <div class="d-flex justify-content-between mt-4 fw-bold">
+                <h5 class="h5">Total Price:</h5>
+                <h5 class="h5">{{price | currency:"INR"}}</h5>
+            </div>
+            <div class="text-center">
+                <button type="button" class="btn btn-warning btn-sm text-white shadow" (click)="remove()"><i class="fa fa-credit-card-alt"></i> Pay</button>
+            </div>
+        </div>
+    </div>
+    <div class="text-center" *ngIf="pizza.length == 0">
+        <h5>No orders yet!!!</h5>
+        <button routerLink="/pizza" class="btn bg-warning text-white shadow">Order Now</button>
+    </div>
+    <div class="text-center" *ngIf="ordered">
+        <h6>Your order is placed</h6>
+        <h3>Thank you!!!</h3>
+    </div>
+</div>
+<footer class="fixed-bottom bg-light text-warning text-center p-2">Copyright @2022 by Pizzeria. All rights are reserved</footer>

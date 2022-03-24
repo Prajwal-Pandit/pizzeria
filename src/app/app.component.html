@@ -1,0 +1,21 @@
+<nav class="navbar sticky-top mb-4 navbar-expand-lg navbar-light bg-dark p-2">
+    <a class="navbar-brand text-secondary fs-4 " href="#"> Pizzeria |<img src="./assets/img/PizzeriaLogo.png" width="50px" height="40px" alt="Pizzeria"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-between" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a routerLink="/pizza" class="nav-link text-secondary">Order Pizza</a>
+            </li>
+            <li class="nav-item active">
+                <a routerLink="/build-your-pizza" class="nav-link text-secondary">Build Your Pizza</a>
+            </li>
+        </ul>
+        <button routerLink="/cart" class="btn btn-warning text-white bg-warning shadow"><i class="fa fa-shopping-cart"></i> Shopping Cart</button>
+    </div>
+</nav>
+
+<router-outlet></router-outlet>
+
+
